@@ -1,0 +1,17 @@
+#!/usr/local/bin/python3
+
+import sys
+
+if __name__ == '__main__':
+    determiners =   ('a,an,and,the,or,but,this,that,these,those'.split(',')
+        + 'as,at,by,to,but,in,of,on,onto,into,up'.split(',')
+        + 'with,without,was,be,from,over,it,is,about,above'.split(','))
+
+    for line in sys.stdin:
+        y = line.split()
+        for x in y:
+            x = x.strip().lower()
+            if len(x) < 3 or x in determiners:
+                continue
+            else:
+                print(x)
